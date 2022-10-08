@@ -270,7 +270,7 @@ class WindowListView : RelativeLayout {
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
 
-        if (!isEnabled) return super.dispatchTouchEvent(event)
+        if (!isEnabled || (scaleAnimator?.isRunning == true && !scaleWindowZoomIn)) return super.onTouchEvent(event)
 
         velocityTracker.addMovement(event)
 
